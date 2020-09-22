@@ -13,6 +13,6 @@ import com.cartoes2.api.entities.Transacao;
 @Transactional(readOnly = true)
 public interface TransacaoRepository extends JpaRepository<Transacao, Integer> {
     
-    @Query("SELECT ta FROM Transacao ta WHERE trans.cartao.numero = :numeroCartao")
+    @Query("SELECT ta FROM Transacao ta WHERE ta.cartao.numero = :numeroCartao")
     Optional<List<Transacao>> findByNumeroCartao(@Param("numeroCartao") String numeroCartao);
 }
